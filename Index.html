@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Église Espoir Vivant · Foi & Communauté</title>
+  <meta name="description" content="Église Espoir Vivant : un lieu pour grandir, croire et appartenir. Cultes inspirants, prédications puissantes, événements et famille de foi.">
+  <!-- Google Fonts & améliore la typographie moderne -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+  <!-- Font Awesome 6 (gratuit, icônes modernes) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, sans-serif;
+      background-color: #ffffff;
+      color: #1e1e2f;
+      scroll-behavior: smooth;
+      line-height: 1.5;
+    }
+
+    /* container utilitaire */
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ========== NAVBAR MODERNE ========== */
+    nav {
+      background: rgba(15, 15, 20, 0.96);
+      backdrop-filter: blur(12px);
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      transition: all 0.3s ease;
+      border-bottom: 1px solid rgba(255, 215, 0, 0.15);
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 800;
+      letter-spacing: -0.3px;
+      background: linear-gradient(135deg, #f9d56e, #f4b400);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      color: #f0f0f0;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: 0.25s ease;
+      position: relative;
+    }
+
+    .nav-links a:hover {
+      color: #f4b400;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -6px;
+      left: 0;
+      width: 0%;
+      height: 2px;
+      background: #f4b400;
+      transition: 0.3s;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    /* menu burger responsive */
+    .menu-toggle {
+      display: none;
+      font-size: 1.8rem;
+      cursor: pointer;
+      color: #f4b400;
+    }
+
+    /* ========== HERO AMÉLIORÉ ========== */
+    .hero {
+      min-height: 90vh;
+      background: linear-gradient(125deg, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.5)), 
+      url('https://images.unsplash.com/photo-1507692049790-de58290a4334?q=80&w=2070&auto=format') center/cover no-repeat;
+      background-attachment: fixed;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+    }
+
+    .hero-content {
+      max-width: 900px;
+      padding: 2rem;
+      animation: fadeUp 0.9s ease-out;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.2rem, 6vw, 4.2rem);
+      font-weight: 800;
+      margin-bottom: 1.2rem;
+      line-height: 1.2;
+      background: linear-gradient(to right, #fff, #ffe4a3);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero p {
+      font-size: clamp(1rem, 2.5vw, 1.3rem);
+      margin-bottom: 2rem;
+      color: #fef9e6;
+      opacity: 0.95;
+      font-weight: 400;
+    }
+
+    .btn-group {
+      display: flex;
+      gap: 1.2rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 0.9rem 2rem;
+      border-radius: 40px;
+      font-weight: 600;
+      font-size: 1rem;
+      border: none;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      text-decoration: none;
+    }
+
+    .btn-primary {
+      background: #f4b400;
+      color: #0f0f0f;
+      box-shadow: 0 8px 18px rgba(244, 180, 0, 0.25);
+    }
+
+    .btn-primary:hover {
+      background: #e0a800;
+      transform: translateY(-3px);
+      box-shadow: 0 14px 26px rgba(244, 180, 0, 0.3);
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(6px);
+      color: white;
+      border: 1px solid rgba(255, 255, 255, 0.4);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.3);
+      transform: translateY(-3px);
+    }
+
+    /* sections modernes */
+    section {
+      padding: 5rem 0;
+      border-bottom: 1px solid #f0ede8;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 2.2rem;
+      font-weight: 700;
+      margin-bottom: 2rem;
+      color: #151515;
+      letter-spacing: -0.3px;
+      position: relative;
+      display: inline-block;
+      width: 100%;
+    }
+
+    .section-title:after {
+      content: '';
+      display: block;
+      width: 70px;
+      height: 4px;
+      background: #f4b400;
+      margin: 0.6rem auto 0;
+      border-radius: 3px;
+    }
+
+    .info-text {
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto;
+      font-size: 1.1rem;
+      line-height: 1.6;
+      color: #2d2f3b;
+    }
+
+    /* cartes élégantes */
+    .cards {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: center;
+      margin-top: 2rem;
+    }
+
+    .card {
+      background: #ffffff;
+      border-radius: 28px;
+      padding: 2rem 1.5rem;
+      flex: 1 1 260px;
+      text-align: center;
+      transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+      box-shadow: 0 12px 28px -8px rgba(0, 0, 0, 0.08);
+      border: 1px solid #f1efe7;
+    }
+
+    .card i {
+      font-size: 2.4rem;
+      color: #f4b400;
+      margin-bottom: 1rem;
+    }
+
+    .card h3 {
+      font-size: 1.4rem;
+      margin-bottom: 0.7rem;
+    }
+
+    .card p {
+      color: #555;
+      font-size: 0.95rem;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      border-color: #f4b400;
+      box-shadow: 0 22px 32px -12px rgba(0, 0, 0, 0.15);
+    }
+
+    /* horaire chic */
+    .schedule-block {
+      background: #fef9ef;
+      border-radius: 40px;
+      padding: 2rem;
+      max-width: 600px;
+      margin: 2rem auto 0;
+      text-align: center;
+      border: 1px solid #fae7b3;
+    }
+
+    .schedule-block p {
+      font-size: 1.2rem;
+      margin: 0.6rem 0;
+    }
+
+    .contact-flex {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+      margin-top: 1.5rem;
+    }
+
+    .contact-item {
+      background: #ffffff;
+      border-radius: 48px;
+      padding: 0.8rem 1.8rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.03);
+      border: 1px solid #e9e2d4;
+      transition: 0.2s;
+    }
+
+    .contact-item i {
+      color: #f4b400;
+      font-size: 1.3rem;
+    }
+
+    .contact-item span {
+      font-weight: 500;
+    }
+
+    /* carte google maps simplifiée (placeholder élégant) */
+    .map-placeholder {
+      margin-top: 2rem;
+      background: #ece6db;
+      border-radius: 30px;
+      padding: 1rem;
+      text-align: center;
+      color: #4a3b1c;
+      border: 1px solid #e2d5be;
+    }
+
+    /* footer moderne */
+    footer {
+      background: #0c0c12;
+      color: #cdcddf;
+      text-align: center;
+      padding: 2.5rem 1rem;
+      margin-top: 0;
+    }
+
+    .footer-content {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .social-icons a {
+      color: #cdcddf;
+      margin: 0 12px;
+      font-size: 1.4rem;
+      transition: 0.2s;
+      display: inline-block;
+    }
+
+    .social-icons a:hover {
+      color: #f4b400;
+      transform: scale(1.1);
+    }
+
+    /* animation fade */
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(28px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* responsive */
+    @media (max-width: 820px) {
+      .menu-toggle {
+        display: block;
+      }
+      .nav-links {
+        position: fixed;
+        top: 70px;
+        left: -100%;
+        background: #0f0f14f2;
+        backdrop-filter: blur(16px);
+        flex-direction: column;
+        width: 70%;
+        height: calc(100vh - 70px);
+        padding: 2rem 1.5rem;
+        transition: 0.3s ease;
+        gap: 1.8rem;
+        border-right: 1px solid #2a2a35;
+        z-index: 999;
+      }
+      .nav-links.active {
+        left: 0;
+      }
+      nav {
+        padding: 0.9rem 1.5rem;
+      }
+      .btn-group {
+        gap: 0.8rem;
+      }
+      .hero {
+        background-attachment: scroll;
+      }
+    }
+
+    @media (max-width: 580px) {
+      .container {
+        padding: 0 18px;
+      }
+      .card {
+        flex-basis: 100%;
+      }
+      .contact-item {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="logo"><i class="fas fa-church" style="margin-right: 8px; color:#f4b400;"></i> Espoir Vivant</div>
+  <div class="menu-toggle" id="menuToggle">
+    <i class="fas fa-bars"></i>
+  </div>
+  <div class="nav-links" id="navLinks">
+    <a href="#accueil">Accueil</a>
+    <a href="#a-propos">À propos</a>
+    <a href="#horaires">Horaires</a>
+    <a href="#predications">Prédications</a>
+    <a href="#evenements">Événements</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<!-- hero section avec ancrage -->
+<header class="hero" id="accueil">
+  <div class="hero-content">
+    <h1>Un lieu pour grandir, croire et appartenir</h1>
+    <p>Bienvenue dans une famille de foi, de transformation et d'espérance. Ici, vous n'êtes jamais seul.</p>
+    <div class="btn-group">
+      <button class="btn btn-primary" id="joinBtn"><i class="fas fa-heart"></i> Nous rejoindre</button>
+      <button class="btn btn-secondary" id="scheduleBtn"><i class="fas fa-clock"></i> Voir les horaires</button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="container">
+    <!-- À propos -->
+    <section id="a-propos">
+      <h2 class="section-title">À propos de nous</h2>
+      <p class="info-text">
+        Notre vision est simple : amener les vies à une transformation profonde à travers la foi, la parole et la communion fraternelle.
+        Nous croyons en une Église vivante, ancrée dans l’amour, proche des gens et audacieuse pour l’avenir.
+        <br><br>
+        <i class="fas fa-hands-helping" style="color: #f4b400;"></i> Accueil chaleureux · <i class="fas fa-bible"></i> Enseignement biblique · <i class="fas fa-music"></i> Louange inspirante
+      </p>
+    </section>
+
+    <!-- Horaires & Localisation améliorés -->
+    <section id="horaires">
+      <h2 class="section-title">Horaires & Localisation</h2>
+      <div class="schedule-block">
+        <p><i class="fas fa-sun" style="color:#f4b400; margin-right: 8px;"></i> <strong>Dimanche</strong> — 09h00 - 12h00 (Culte de réveil)</p>
+        <p><i class="fas fa-praying-hands"></i> <strong>Culte de semaine</strong> — Mercredi 18h00</p>
+        <p><i class="fas fa-place-of-worship"></i> <strong>Adresse</strong> : 12 Avenue de la Paix, Kinshasa / ou votre ville</p>
+        <p><i class="fas fa-globe"></i> Nous rejoindre en présentiel et en ligne (YouTube Live)</p>
+      </div>
+      <div class="map-placeholder">
+        <i class="fas fa-map-marker-alt" style="margin-right: 6px;"></i> 📍 À proximité du centre-ville — Parking accessible & accès PMR
+        <!-- carte symbolique -->
+      </div>
+    </section>
+
+    <!-- Prédications enrichies -->
+    <section id="predications">
+      <h2 class="section-title">Prédications récentes</h2>
+      <div class="cards">
+        <div class="card">
+          <i class="fas fa-cross"></i>
+          <h3>📖 La foi en action</h3>
+          <p>Apprenez à manifester votre foi au quotidien, au-delà des émotions.</p>
+        </div>
+        <div class="card">
+          <i class="fas fa-fire"></i>
+          <h3>🔥 Restaurer son espérance</h3>
+          <p>Un message puissant pour retrouver la joie et la vision divine.</p>
+        </div>
+        <div class="card">
+          <i class="fas fa-tree"></i>
+          <h3>🌿 Marcher avec Dieu</h3>
+          <p>Intimité et obéissance : le chemin d'une vie transformée.</p>
+        </div>
+      </div>
+      <div style="text-align: center; margin-top: 2.5rem;">
+        <a href="#" style="background: none; border: 1px solid #f4b400; padding: 10px 30px; border-radius: 40px; text-decoration: none; font-weight: 600; color:#1e1e2f;">📺 Toutes les prédications</a>
+      </div>
+    </section>
+
+    <!-- Événements dynamiques -->
+    <section id="evenements">
+      <h2 class="section-title">Événements à venir</h2>
+      <div class="cards">
+        <div class="card">
+          <i class="fas fa-users"></i>
+          <h3>Conférence Jeunesse</h3>
+          <p>21-22 Mars 2026 · Thème « Génération Impact »</p>
+        </div>
+        <div class="card">
+          <i class="fas fa-moon"></i>
+          <h3>Veillée de prière</h3>
+          <p>Samedi 28 mars à 22h00 · Puissance et délivrance</p>
+        </div>
+        <div class="card">
+          <i class="fas fa-campground"></i>
+          <h3>Camp spirituel annuel</h3>
+          <p>Du 10 au 13 avril — Réveil et renouveau</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact avec icônes modernes -->
+    <section id="contact">
+      <h2 class="section-title">Contact & communauté</h2>
+      <div class="contact-flex">
+        <div class="contact-item"><i class="fab fa-whatsapp"></i><span>+243 813 000 000</span></div>
+        <div class="contact-item"><i class="fas fa-phone-alt"></i><span>+243 999 123 456</span></div>
+        <div class="contact-item"><i class="fas fa-envelope"></i><span>contact@espoirvivant.org</span></div>
+      </div>
+      <div style="text-align: center; margin-top: 2rem;">
+        <p class="info-text" style="font-size: 0.95rem;">📱 Suivez-nous sur les réseaux pour rester connecté :</p>
+        <div style="display: flex; justify-content: center; gap: 1.5rem; margin-top: 1rem;">
+          <a href="#" style="color:#333; font-size: 1.6rem;"><i class="fab fa-facebook"></i></a>
+          <a href="#" style="color:#333; font-size: 1.6rem;"><i class="fab fa-instagram"></i></a>
+          <a href="#" style="color:#333; font-size: 1.6rem;"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+      <!-- small newsletter (moderne) -->
+      <div style="background: #faf7f0; border-radius: 48px; padding: 1.2rem; margin-top: 2rem; text-align: center;">
+        <p><strong>✨ Restez informé ✨</strong> — Recevez nos prières et événements</p>
+        <div style="display: flex; justify-content: center; gap: 8px; margin-top: 12px; flex-wrap: wrap;">
+          <input type="email" placeholder="Votre adresse email" id="newsEmail" style="padding: 12px 20px; border-radius: 60px; border: 1px solid #ddd; width: 260px;">
+          <button id="subscribeBtn" class="btn btn-primary" style="border-radius: 60px;">S'abonner</button>
+        </div>
+        <small id="subFeedback" style="display: block; margin-top: 8px;"></small>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer>
+  <div class="footer-content">
+    <div class="social-icons">
+      <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+      <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+      <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+      <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+    </div>
+    <p>© 2026 Église Espoir Vivant — Une communauté ouverte à tous · Foi, Espérance et Amour</p>
+    <p><i class="fas fa-heart" style="color:#f4b400;"></i> « Or la foi, c'est la ferme assurance des choses qu'on espère. »</p>
+  </div>
+</footer>
+
+<!-- petite interaction JS moderne : menu burger, alertes/notifications amicales, newsletter, smooth scroll -->
+<script>
+  (function() {
+    // Menu burger toggle
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('navLinks');
+    if (menuToggle && navLinks) {
+      menuToggle.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+      });
+      // fermer le menu après clic sur un lien (mobile)
+      const links = navLinks.querySelectorAll('a');
+      links.forEach(link => {
+        link.addEventListener('click', () => {
+          navLinks.classList.remove('active');
+        });
+      });
+    }
+
+    // smooth scroll pour tous les ancres
+    const allLinks = document.querySelectorAll('a[href^="#"]');
+    allLinks.forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        const href = this.getAttribute('href');
+        if (href === "#") return;
+        const targetElement = document.querySelector(href);
+        if (targetElement) {
+          e.preventDefault();
+          targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+
+    // boutons hero actions (alertes modernes avec petit popup toast)
+    const joinBtn = document.getElementById('joinBtn');
+    const scheduleBtn = document.getElementById('scheduleBtn');
+    
+    function showToastMessage(message) {
+      // création toast élégant
+      const toast = document.createElement('div');
+      toast.innerText = message;
+      toast.style.position = 'fixed';
+      toast.style.bottom = '30px';
+      toast.style.left = '50%';
+      toast.style.transform = 'translateX(-50%)';
+      toast.style.backgroundColor = '#1e1e2f';
+      toast.style.color = '#f4b400';
+      toast.style.padding = '12px 24px';
+      toast.style.borderRadius = '50px';
+      toast.style.fontWeight = '500';
+      toast.style.zIndex = '9999';
+      toast.style.backdropFilter = 'blur(12px)';
+      toast.style.boxShadow = '0 8px 20px rgba(0,0,0,0.2)';
+      toast.style.fontSize = '0.9rem';
+      toast.style.border = '1px solid #f4b400';
+      document.body.appendChild(toast);
+      setTimeout(() => {
+        toast.style.opacity = '0';
+        setTimeout(() => toast.remove(), 400);
+      }, 2800);
+    }
+
+    if (joinBtn) {
+      joinBtn.addEventListener('click', () => {
+        showToastMessage('🌟 Merci ! Notre équipe vous contactera sous 24h. Bienvenue à la maison !');
+      });
+    }
+    if (scheduleBtn) {
+      scheduleBtn.addEventListener('click', () => {
+        const horairesSection = document.getElementById('horaires');
+        if(horairesSection) horairesSection.scrollIntoView({ behavior: 'smooth' });
+        showToastMessage('⛪ Dimanche 09h & Mercredi 18h — Nous vous attendons avec joie !');
+      });
+    }
+
+    // petite newsletter simple
+    const subscribeBtn = document.getElementById('subscribeBtn');
+    const newsEmail = document.getElementById('newsEmail');
+    const subFeedback = document.getElementById('subFeedback');
+    if (subscribeBtn && newsEmail) {
+      subscribeBtn.addEventListener('click', () => {
+        const email = newsEmail.value.trim();
+        if (!email || !email.includes('@') || !email.includes('.')) {
+          subFeedback.innerText = '📧 Merci d\'entrer un email valide.';
+          subFeedback.style.color = '#c0392b';
+          setTimeout(() => { subFeedback.innerText = ''; }, 2500);
+          return;
+        }
+        subFeedback.innerText = '✅ Merci ! Vous recevrez nos actualités spirituelles.';
+        subFeedback.style.color = '#2c6e2c';
+        newsEmail.value = '';
+        setTimeout(() => { subFeedback.innerText = ''; }, 3000);
+        // simulation d'enregistrement (aucune donnée réelle)
+      });
+    }
+
+    // effet de classe active sur la navbar au scroll (petit bonus)
+    window.addEventListener('scroll', () => {
+      const sections = document.querySelectorAll('section, .hero');
+      const navLi = document.querySelectorAll('.nav-links a');
+      let current = '';
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop - 100;
+        const sectionId = section.getAttribute('id');
+        if (pageYOffset >= sectionTop && sectionId) {
+          current = sectionId;
+        }
+      });
+      if (!current && window.scrollY < 200) current = 'accueil';
+      navLi.forEach(link => {
+        link.classList.remove('active-link');
+        const href = link.getAttribute('href')?.substring(1);
+        if (href === current) {
+          link.style.color = '#f4b400';
+        } else {
+          link.style.color = '#f0f0f0';
+        }
+      });
+    });
+  })();
+</script>
+</body>
+</html>
